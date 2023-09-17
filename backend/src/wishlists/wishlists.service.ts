@@ -53,9 +53,9 @@ export class WishlistsService {
     updateWishlistDto: UpdateWishlistDto,
     userId: number,
   ) {
-    const wish = await this.findOne(id);
+    const wishList = await this.findOne(id);
 
-    if (wish.owner.id !== userId) {
+    if (wishList.owner.id !== userId) {
       throw new ForbiddenException();
     }
 
@@ -63,9 +63,9 @@ export class WishlistsService {
   }
 
   async removeOne(id: number, userId: number) {
-    const wish = await this.findOne(id);
+    const wishList = await this.findOne(id);
 
-    if (wish.owner.id !== userId) {
+    if (wishList.owner.id !== userId) {
       throw new ForbiddenException();
     }
 
